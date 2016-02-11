@@ -1,24 +1,24 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: en-notifications-release
+  name: en-notifications
   labels:
-    name: en-notifications-release
+    name: en-notifications
     version: v1
 spec:
   replicas: 1
   selector:
-    name: en-notifications-release
+    name: en-notifications
     version: v1
   template:
     metadata:
       labels:
-        name: en-notifications-release
+        name: en-notifications
         version: v1
     spec:
       containers:
-        - name: en-notifications-release
-          image: eu.gcr.io/eve-notifications/en-notifications:$CIRCLE_SHA1
+        - name: en-notifications
+          image: eu.gcr.io/eve-notifications/en-notifications:latest
           volumeMounts:
             - name: en-rss-secrets
               mountPath: /media/secrets
