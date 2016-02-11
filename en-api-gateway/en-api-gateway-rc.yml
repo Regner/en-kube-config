@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: en-api-gateway
+  labels:
+    name: en-api-gateway
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    name: en-api-gateway
+    version: v1
+  template:
+    metadata:
+      labels:
+        name: en-api-gateway
+        version: v1
+    spec:
+      containers:
+        - name: en-api-gateway
+          image: eu.gcr.io/eve-notifications/en-api-gateway:latest
+          ports:
+          - name: http
+            containerPort: 80
+          - name: https
+            containerPort: 443
