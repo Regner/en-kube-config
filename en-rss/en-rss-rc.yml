@@ -22,9 +22,6 @@ spec:
           volumeMounts:
             - name: en-rss-secrets
               mountPath: /media/secrets
-          resources:
-            limits:
-              cpu: 50m
           env:
             - name: GCLOUD_DATASET_ID
               value: eve-notifications
