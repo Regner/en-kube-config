@@ -27,6 +27,12 @@ spec:
               value: eve-notifications
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /media/secrets/key.json
+          ports:
+            - name: http
+              containerPort: 8000
+          resources:
+            limits:
+              cpu: "20m"
       volumes:
         - name: en-rss-secrets
           secret:
