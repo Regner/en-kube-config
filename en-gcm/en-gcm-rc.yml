@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: en-gcm
+  labels:
+    name: en-gcm
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    name: en-gcm
+    version: v1
+  template:
+    metadata:
+      labels:
+        name: en-gcm
+        version: v1
+    spec:
+      containers:
+        - name: en-gcm
+          image: eu.gcr.io/eve-notifications/en-gcm:latest
+          volumeMounts:
+            - name: en-gcm
+              mountPath: /media/secrets
+          env:
+            - name: GCLOUD_DATASET_ID
+              value: eve-notifications
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /media/secrets/key.json
+          ports:
+            - name: http
+              containerPort: 8000
+          resources:
+            limits:
+              cpu: "20m"
+      volumes:
+        - name: en-rss-secrets
+          secret:
+            secretName: en-rss-secrets
