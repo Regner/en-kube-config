@@ -20,7 +20,7 @@ spec:
         - name: en-gcm
           image: eu.gcr.io/eve-notifications/en-gcm:latest
           volumeMounts:
-            - name: en-gcm
+            - name: en-rss-secrets
               mountPath: /media/secrets
           env:
             - name: GCLOUD_DATASET_ID
