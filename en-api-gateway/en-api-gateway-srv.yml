@@ -6,7 +6,8 @@ metadata:
     name: en-api-gateway
     version: v1
 spec:
-  type: LoadBalancer
+  externalIPs:
+    - 10.240.0.2
   ports:
     - name: http
       port: 80
