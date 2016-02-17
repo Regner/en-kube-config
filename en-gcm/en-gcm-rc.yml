@@ -22,8 +22,6 @@ spec:
           volumeMounts:
             - name: en-rss-secrets
               mountPath: /media/gacredentials/
-            - name: en-gcm-api
-              mountPath: /media/secrets/
           env:
             - name: GCLOUD_DATASET_ID
               value: eve-notifications
