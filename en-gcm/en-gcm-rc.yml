@@ -39,6 +39,3 @@ spec:
         - name: en-rss-secrets
           secret:
             secretName: en-rss-secrets
-        - name: en-gcm-api
-          secret:
-            secretName: en-gcm-api
