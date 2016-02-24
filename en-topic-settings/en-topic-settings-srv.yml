@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: en-topic-settings
+  labels:
+    name: en-topic-settings
+    version: v1
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    name: en-topic-settings
+    version: v1
