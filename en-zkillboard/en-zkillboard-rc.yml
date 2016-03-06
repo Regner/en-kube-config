@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: en-zkillboard
+  labels:
+    name: en-zkillboard
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    name: en-zkillboard
+    version: v1
+  template:
+    metadata:
+      labels:
+        name: en-zkillboard
+        version: v1
+    spec:
+      containers:
+        - name: en-zkillboard
+          image: eu.gcr.io/eve-notifications/en-zkillboard:latest
+          volumeMounts:
+            - name: en-rss-secrets
+              mountPath: /media/secrets
+          env:
+            - name: GCLOUD_DATASET_ID
+              value: eve-notifications
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /media/secrets/key.json
+          resources:
+            limits:
+              cpu: "20m"
+      volumes:
+        - name: en-rss-secrets
+          secret:
+            secretName: en-rss-secrets
