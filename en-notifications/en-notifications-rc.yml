@@ -6,7 +6,7 @@ metadata:
     name: en-notifications
     version: v1
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     name: en-notifications
     version: v1
