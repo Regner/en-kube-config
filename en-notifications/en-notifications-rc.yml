@@ -6,7 +6,7 @@ metadata:
     name: en-notifications
     version: v1
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     name: en-notifications
     version: v1
@@ -29,6 +29,8 @@ spec:
               value: eve-notifications
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /media/gacredentials/key.json
+            - name: SLEEP_TIME
+              value: "10"
           resources:
             limits:
               cpu: "20m"
