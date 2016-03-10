@@ -20,11 +20,9 @@ spec:
         - name: en-test
           image: eu.gcr.io/eve-notifications/en-test:latest
           volumeMounts:
-            - name: en-rss-secrets
+            - name: en-app-credentials
               mountPath: /media/secrets
           env:
-            - name: GCLOUD_DATASET_ID
-              value: eve-notifications
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /media/secrets/key.json
           ports:
@@ -34,6 +32,6 @@ spec:
             limits:
               cpu: "20m"
       volumes:
-        - name: en-rss-secrets
+        - name: en-app-credentials
           secret:
-            secretName: en-rss-secrets
+            secretName: en-app-credentials

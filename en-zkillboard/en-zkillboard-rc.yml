@@ -20,17 +20,15 @@ spec:
         - name: en-zkillboard
           image: eu.gcr.io/eve-notifications/en-zkillboard:latest
           volumeMounts:
-            - name: en-rss-secrets
+            - name: en-app-credentials
               mountPath: /media/secrets
           env:
-            - name: GCLOUD_DATASET_ID
-              value: eve-notifications
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /media/secrets/key.json
           resources:
             limits:
               cpu: "20m"
       volumes:
-        - name: en-rss-secrets
+        - name: en-app-credentials
           secret:
-            secretName: en-rss-secrets
+            secretName: en-app-credentials

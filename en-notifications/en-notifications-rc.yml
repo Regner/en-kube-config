@@ -20,22 +20,12 @@ spec:
         - name: en-notifications
           image: eu.gcr.io/eve-notifications/en-notifications:latest
           volumeMounts:
-            - name: en-rss-secrets
-              mountPath: /media/gacredentials/
             - name: en-gcm-api
               mountPath: /media/secrets/
-          env:
-            - name: GCLOUD_DATASET_ID
-              value: eve-notifications
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: /media/gacredentials/key.json
           resources:
             limits:
               cpu: "20m"
       volumes:
-        - name: en-rss-secrets
-          secret:
-            secretName: en-rss-secrets
         - name: en-gcm-api
           secret:
             secretName: en-gcm-api
