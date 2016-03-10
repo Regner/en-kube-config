@@ -29,8 +29,6 @@ spec:
               value: eve-notifications
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /media/gacredentials/key.json
-            - name: SLEEP_TIME
-              value: "10"
           resources:
             limits:
               cpu: "20m"
